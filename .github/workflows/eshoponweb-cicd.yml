@@ -7,6 +7,7 @@ on: workflow_dispatch
 env:
   RESOURCE-GROUP: rg-eshoponweb-northeurope
   LOCATION: northeurope
+  SKU: F1
   TEMPLATE-FILE: infra/webapp.bicep
   SUBSCRIPTION-ID: a519a4dc-eb72-4aad-a2ac-a630330f3705
   WEBAPP-NAME: devops-webapp-northeurope-485115169
@@ -81,7 +82,7 @@ jobs:
           subscriptionId: ${{ env.SUBSCRIPTION-ID }}
           resourceGroupName: ${{ env.RESOURCE-GROUP }}
           template: bicep-template/webapp.bicep
-          parameters: "webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }} sku=F1"
+          parameters: "webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }} sku=${{ env.SKU }}"
           failOnStdErr: false
 
       # Publish website to Azure App Service (WebApp)
